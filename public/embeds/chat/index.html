@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Support chat</title>
+    <link rel="stylesheet" href="/embeds/embed.css" />
+  </head>
+  <body>
+    <ul id="log" class="chat-log" aria-label="Conversation">
+      <li>Agent: How can we help?</li>
+    </ul>
+    <form id="form">
+      <label for="message">Message</label>
+      <input id="message" name="message" type="text" />
+      <button type="submit">Send</button>
+    </form>
+    <script>
+      function add(text) {
+        var item = document.createElement('li');
+        item.textContent = text;
+        document.getElementById('log').appendChild(item);
+      }
+      document.getElementById('form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var field = document.getElementById('message');
+        var text = field.value;
+        if (!text) return;
+        add('You: ' + text);
+        field.value = '';
+        setTimeout(function () {
+          add('Agent: Thanks, we got "' + text + '". An agent will reply soon.');
+        }, 300);
+      });
+    </script>
+  </body>
+</html>

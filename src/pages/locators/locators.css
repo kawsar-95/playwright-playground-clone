@@ -1,0 +1,24 @@
+.checkbox-group { display: flex; flex-direction: column; gap: 14px; }
+.checkbox-group label { display: flex; align-items: center; gap: 8px; }
+.checkbox-group input { width: 18px; height: 18px; }
+
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+.product-card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
+.product-card h3 { margin: 0 0 6px; font-size: 16px; }
+.product-card p { margin: 0 0 12px; color: #666; }
+
+.settings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.settings-panel { border: 1px solid #ddd; border-radius: 8px; padding: 16px; }
+.settings-panel h3 { margin-top: 0; }
+.settings-actions { margin-top: 16px; }
+
+.task-list { margin: 0; padding: 0; list-style: none; }
+.task-list li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #eee; }
+.task-list li span:first-child { flex: 1; }
+.status-badge { padding: 3px 8px; font-size: 12px; font-weight: 700; background: #eee; border-radius: 999px; }
+.status-badge.overdue { color: #8a1c1c; background: #fde2e2; }
+.status-badge.done { color: #1d5e2f; background: #dff3e4; }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.toolbar img { width: 36px; height: 36px; }
+.icon-button { padding: 8px 12px; font-size: 18px; line-height: 1; }

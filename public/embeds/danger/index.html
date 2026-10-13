@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Account settings</title>
+    <link rel="stylesheet" href="/embeds/embed.css" />
+  </head>
+  <body>
+    <button id="delete" class="danger" type="button">Delete account</button>
+    <div id="result" class="result" role="status"></div>
+    <script>
+      document.getElementById('delete').addEventListener('click', function () {
+        var ok = window.confirm('Delete your account? This cannot be undone.');
+        document.getElementById('result').textContent = ok ? 'Account deleted' : 'Deletion cancelled';
+      });
+    </script>
+  </body>
+</html>

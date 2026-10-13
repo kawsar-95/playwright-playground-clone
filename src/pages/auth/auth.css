@@ -1,0 +1,50 @@
+/* Styles for the sign-in page. */
+.auth-card {
+  max-width: 420px;
+  margin: 10px auto 16px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+.auth-card-brand { color: var(--accent); letter-spacing: 1px; text-transform: uppercase; font-size: 13px; font-weight: 700; }
+.auth-card h2 { margin: 6px 0 22px; font-size: 22px; }
+.auth-card .form-group { max-width: none; margin-bottom: 18px; }
+.auth-card .form-group input { width: 100%; }
+.auth-card-remember { display: flex; flex-direction: column; gap: 14px; margin-bottom: 18px; }
+.auth-card-remember label { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.auth-card-remember input { width: 18px; height: 18px; }
+.auth-card-submit { width: 100%; padding: 12px 16px; font-weight: 700; }
+.auth-card .result {
+  margin-top: 20px;
+  padding: 14px;
+  background: #f0f0f0;
+  border-left: 4px solid #bbb;
+  border-radius: 5px;
+}
+.auth-card .result.success {
+  background: var(--success-soft);
+  border-left-color: var(--success);
+  color: var(--success-text);
+}
+.auth-card .result[role="alert"] {
+  background: var(--danger-soft);
+  border-left-color: var(--danger);
+  color: var(--danger-text);
+}
+.auth-card .result + .auth-card-submit { margin-top: 18px; }
+.auth-card .credentials-note {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border: 1px dashed #bbb;
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.auth-card .credentials-note p { margin: 4px 0; }
+.account-details { display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; margin: 0 0 4px; }
+.account-details dt { color: var(--muted); }
+.account-details dd { margin: 0; font-weight: 600; }
+.auth-cross-link { margin: 0; color: var(--muted); font-size: 14px; }

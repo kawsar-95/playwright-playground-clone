@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Terms</title>
+    <link rel="stylesheet" href="/embeds/embed.css" />
+  </head>
+  <body>
+    <p>By using this service you agree to play fair and test often.</p>
+    <label class="inline"><input id="accept" type="checkbox" /> I accept the terms</label>
+    <div id="result" class="result success" role="status"></div>
+    <script>
+      document.getElementById('accept').addEventListener('change', function (event) {
+        document.getElementById('result').textContent = event.target.checked ? 'Terms accepted' : '';
+      });
+    </script>
+  </body>
+</html>

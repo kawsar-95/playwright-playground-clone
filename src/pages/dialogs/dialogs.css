@@ -1,0 +1,18 @@
+.lesson-callout { margin: 0.8rem 0 0; padding: 0.7rem 0.9rem; background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 6px; }
+.error-message { display: block; color: var(--danger); font-size: 0.85rem; margin-top: 0.2rem; }
+.dialog-files, .shop-list { display: flex; flex-direction: column; gap: 8px; margin: 0 0 12px; padding: 0; list-style: none; }
+.file-row { display: flex; justify-content: space-between; align-items: center; max-width: 420px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; }
+.modal-backdrop { position: fixed; inset: 0; z-index: 100; display: flex; justify-content: center; align-items: center; background: rgba(0, 0, 0, 0.5); }
+.modal { position: relative; width: 420px; max-width: calc(100% - 40px); padding: 24px; background: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+.modal h2 { margin-top: 0; padding-right: 32px; }
+.modal p { color: var(--muted); margin-bottom: 24px; }
+.modal-close { position: absolute; top: 14px; right: 14px; width: 32px; height: 32px; padding: 0; font-size: 24px; line-height: 1; color: var(--text); background: none; border-color: transparent; }
+.modal-close:hover:not(:disabled) { background: #f0f0f0; border-color: transparent; }
+.native-modal { color: var(--text); }
+.native-modal::backdrop { background: rgba(0, 0, 0, 0.5); }
+.native-modal .button-row { margin-top: 16px; }
+.newsletter { border-top: 4px solid var(--accent); }
+.report-links { margin: 0; padding-left: 20px; line-height: 1.8; }
+.report-figures { display: flex; flex-wrap: wrap; gap: 32px; margin: 0; }
+.report-figures dt { color: var(--muted); }
+.report-figures dd { margin: 4px 0 0; font-size: 28px; font-weight: 700; }

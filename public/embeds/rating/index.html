@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rating</title>
+    <link rel="stylesheet" href="/embeds/embed.css" />
+  </head>
+  <body>
+    <p>How was your visit?</p>
+    <div class="stars" role="group" aria-label="Rating">
+      <button type="button" data-stars="1" aria-label="1 star">1</button>
+      <button type="button" data-stars="2" aria-label="2 stars">2</button>
+      <button type="button" data-stars="3" aria-label="3 stars">3</button>
+      <button type="button" data-stars="4" aria-label="4 stars">4</button>
+      <button type="button" data-stars="5" aria-label="5 stars">5</button>
+    </div>
+    <script>
+      document.querySelector('.stars').addEventListener('click', function (event) {
+        var button = event.target.closest('button');
+        if (!button) return;
+        window.parent.postMessage({ type: 'rating', stars: Number(button.dataset.stars) }, '*');
+      });
+    </script>
+  </body>
+</html>

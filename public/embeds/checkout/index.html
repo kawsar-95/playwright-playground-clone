@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/embeds/embed.css" />
+  </head>
+  <body>
+    <h1 id="title"></h1>
+    <p id="text"></p>
+    <button id="next" type="button"></button>
+    <script>
+      var step = Number(new URLSearchParams(location.search).get('step')) || 1;
+      var steps = {
+        1: { title: 'Step 1 of 3: Cart', text: '1 item in your cart.', button: 'Continue to shipping' },
+        2: { title: 'Step 2 of 3: Shipping', text: 'Shipping to your saved address.', button: 'Continue to payment' },
+        3: { title: 'Step 3 of 3: Payment', text: 'Pay with your saved card.', button: 'Place order' },
+      };
+      var current = steps[step] || steps[1];
+      document.getElementById('title').textContent = current.title;
+      document.getElementById('text').textContent = current.text;
+      var next = document.getElementById('next');
+      next.textContent = current.button;
+      next.addEventListener('click', function () {
+        if (step < 3) {
+          location.href = '/embeds/checkout/?step=' + (step + 1);
+        } else {
+          next.disabled = true;
+          window.parent.postMessage({ type: 'order-placed', order: 1042 }, window.location.origin);
+        }
+      });
+    </script>
+  </body>
+</html>

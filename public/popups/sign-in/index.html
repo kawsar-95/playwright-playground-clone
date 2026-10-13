@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign in · Acme ID</title>
+    <style>
+      body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #111; line-height: 1.5; }
+      main { padding: 24px; max-width: 420px; margin: 0 auto; }
+      .brand { font-weight: 700; color: #2f5fd0; margin-bottom: 4px; }
+      h1 { margin: 0 0 8px; font-size: 1.4rem; }
+      p { color: #666; margin-top: 0; }
+      form { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 18px; }
+      .field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
+      label { font-weight: 600; }
+      input { font: inherit; padding: 7px 10px; border: 1px solid #bbb; border-radius: 6px; }
+      .row { display: flex; gap: 10px; }
+      button { font: inherit; cursor: pointer; padding: 8px 16px; border-radius: 6px; border: 1px solid #2f5fd0; background: #2f5fd0; color: #fff; }
+      button.secondary { background: #fff; color: #2f5fd0; }
+      .error { color: #c62828; font-size: 0.9rem; margin: 0 0 10px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="brand">Acme ID</div>
+      <h1>Sign in</h1>
+      <p>QA Playground wants to know who you are. Any email and password will do.</p>
+      <form id="form" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="off" />
+        </div>
+        <p id="error" class="error" role="alert" hidden></p>
+        <div class="row">
+          <button type="submit">Allow</button>
+          <button type="button" id="deny" class="secondary">Deny</button>
+        </div>
+      </form>
+    </main>
+    <script>
+      function reply(message) {
+        if (window.opener) window.opener.postMessage(message, window.location.origin);
+        // Close a moment later, so the click that caused it can finish first.
+        setTimeout(function () { window.close(); }, 100);
+      }
+      document.getElementById("form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var email = document.getElementById("email").value.trim();
+        var password = document.getElementById("password").value;
+        var error = document.getElementById("error");
+        if (!email || !password) {
+          error.textContent = "Enter an email and a password.";
+          error.hidden = false;
+          return;
+        }
+        reply({ type: "signed-in", email: email });
+      });
+      document.getElementById("deny").addEventListener("click", function () {
+        reply({ type: "denied" });
+      });
+    </script>
+  </body>
+</html>

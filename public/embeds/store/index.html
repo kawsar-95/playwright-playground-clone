@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Store</title>
+    <link rel="stylesheet" href="/embeds/embed.css" />
+  </head>
+  <body>
+    <h1>Acme Headphones</h1>
+    <p id="count">2 reviews</p>
+    <iframe title="Reviews" src="/embeds/reviews/"></iframe>
+    <script>
+      var reviews = 2;
+      window.addEventListener('message', function (event) {
+        if (event.data && event.data.type === 'review-posted') {
+          reviews += 1;
+          document.getElementById('count').textContent = reviews + ' reviews';
+        }
+      });
+    </script>
+  </body>
+</html>

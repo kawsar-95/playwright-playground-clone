@@ -1,0 +1,7 @@
+QA Playground sample report
+===========================
+Test totals
+  Total tests: 120
+  Passed: 112
+  Failed: 5
+  Skipped: 3
